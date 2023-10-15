@@ -16,8 +16,8 @@ root.render(
   <React.StrictMode>
     <App
       value={store.getState()}
-      onIncrease={() => store.dispatch({ type: 'INCREMENT' })}
-      onDecrease={() => store.dispatch({ type: 'DECREMENT' })}
+      onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
+      onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
     />
   </React.StrictMode>
 );
