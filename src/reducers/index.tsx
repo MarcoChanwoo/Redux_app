@@ -6,7 +6,7 @@ const counter = (state = 0, action: { type: string }) => {
       return state - 1;
 
     default:
-      break;
+      return state;
   }
 }
 
