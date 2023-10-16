@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 type Props = {
-  value: number;
+  value: any;
   onIncrement: () => void;
   onDecrement: () => void;
 }
