@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { RootState } from './reducers';
 
 type Props = {
   value: any;
@@ -10,6 +12,9 @@ type Props = {
 }
 
 function App({ value, onIncrement, onDecrement }: Props) {
+
+  const counter = useSelector((state: RootState) => state.counter);
+
   const [todoValue, setTodoValue] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodoValue(e.target.value)
