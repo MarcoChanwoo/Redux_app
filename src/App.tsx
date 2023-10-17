@@ -33,6 +33,11 @@ function App({ value, onIncrement, onDecrement }: Props) {
       <button onClick={onDecrement}>
         -
       </button>
+
+      <ul>
+        {todos.map((todo, index) => <li key={index}>{todo}</li>)}
+      </ul>
+
       <form onSubmit={addTodo}>
         <input type='text' value={todoValue} onChange={handleChange} />
         <input type='submit' />
