@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from './reducers';
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 }
 
 function App({ value, onIncrement, onDecrement }: Props) {
-
+  const dispatch = useDispatch();
   const counter = useSelector((state: RootState) => state.counter);
   const todos: string[] = useSelector((state: RootState) => state.todos)
 
