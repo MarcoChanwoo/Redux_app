@@ -14,6 +14,7 @@ type Props = {
 function App({ value, onIncrement, onDecrement }: Props) {
 
   const counter = useSelector((state: RootState) => state.counter);
+  const todos: string[] = useSelector((state: RootState) => state.todos)
 
   const [todoValue, setTodoValue] = useState("");
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
