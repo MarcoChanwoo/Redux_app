@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react'
 
 type Props = {
   value: any;
@@ -9,6 +10,14 @@ type Props = {
 }
 
 function App({ value, onIncrement, onDecrement }: Props) {
+  const [todoValue, setTodoValue] = useState("");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTodoValue(e.target.value)
+  }
+  const addTodo = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setTodoValue("");
+  }
   return (
     <div className="App">
       {/* Clicked:{value} times */}
@@ -18,6 +27,10 @@ function App({ value, onIncrement, onDecrement }: Props) {
       <button onClick={onDecrement}>
         -
       </button>
+      <form onSubmit={addTodo}>
+        <input type='text' value={todoValue} onChange={handleChange} />
+        <input type='submit' />
+      </form>
     </div>
   );
 }
