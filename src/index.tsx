@@ -12,7 +12,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const store = createStore(rootReducer);
 
 const loggerMiddleware = (store: any) => (next: any) => (action: any) => {
   console.log("store", store);
@@ -20,7 +19,8 @@ const loggerMiddleware = (store: any) => (next: any) => (action: any) => {
   next(action);
 }
 
-const middleware = applyMiddleware(loggerMiddleware)
+const middleware = applyMiddleware(loggerMiddleware);
+const store = createStore(rootReducer, middleware);
 
 const render = () => root.render(
   <React.StrictMode>
