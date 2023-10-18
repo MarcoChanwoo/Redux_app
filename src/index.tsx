@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import counter from './reducers';
 import rootReducer from './reducers';
 import { Provider } from 'react-redux';
@@ -20,7 +20,7 @@ const loggerMiddleware = (store: any) => (next: any) => (action: any) => {
   next(action);
 }
 
-
+const middleware = applyMiddleware(loggerMiddleware)
 
 const render = () => root.render(
   <React.StrictMode>
