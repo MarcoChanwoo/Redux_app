@@ -14,11 +14,12 @@ const root = ReactDOM.createRoot(
 
 const store = createStore(rootReducer);
 
-store.dispatch({
-  type: "ADD_TODO",
-  text: "USE REDUX"
-})
-console.log('store.getState', store.getState());
+const loggerMiddleware = (store: any) => (next: any) => (action: any) => {
+  console.log("store", store);
+  console.log("action", action);
+  next(action);
+}
+
 
 
 const render = () => root.render(
