@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from './reducers';
+import axios from 'axios';
 
 type Props = {
   value: any;
@@ -17,6 +18,18 @@ function App({ value, onIncrement, onDecrement }: Props) {
   const todos: string[] = useSelector((state: RootState) => state.todos)
 
   const [todoValue, setTodoValue] = useState("");
+
+  useEffect(() => {
+    dispatch(fetchPosts())
+  }, [dispatch])
+
+  const fetchPosts = (): any => {
+    return async function fetchPostsThunk(dispatch: any, getState: any) {
+      const response = await axios.get("https://jsonplaceholder.typicode.com/posts");
+      dispatch({ type: "FETCH_POSTS", payload: response.data })
+    }
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTodoValue(e.target.value)
   }
