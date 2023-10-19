@@ -16,7 +16,7 @@ function App({ value, onIncrement, onDecrement }: Props) {
   const dispatch = useDispatch();
   const counter = useSelector((state: RootState) => state.counter);
   const todos: string[] = useSelector((state: RootState) => state.todos)
-
+  const posts = useSelector((state: RootState) => state.posts);
   const [todoValue, setTodoValue] = useState("");
 
   useEffect(() => {
