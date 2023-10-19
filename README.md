@@ -1,7 +1,7 @@
 React Redux practice
 
--Typescript
--combineReducers
--Redux Provider
--useSelector / useDispatch
--Redux Thunk
+- Typescript
+- combineReducers
+- Redux Provider
+- useSelector / useDispatch
+- Redux Thunk
