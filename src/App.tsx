@@ -62,6 +62,10 @@ function App({ value, onIncrement, onDecrement }: Props) {
         <input type='text' value={todoValue} onChange={handleChange} />
         <input type='submit' />
       </form>
+
+      <ul>
+        {posts.map((post, index) => <li key={index}>{post.title}</li>)}
+      </ul>
     </div>
   );
 }
