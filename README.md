@@ -1,4 +1,4 @@
-React Redux practice
+Redux practice(React)
 
 - Typescript
 - combineReducers
